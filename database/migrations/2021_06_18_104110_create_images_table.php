@@ -13,11 +13,13 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-//        Schema::create('images', function (Blueprint $table) {
-//            $table->id();
-//            $table->string("path");
-//            $table->timestamps();
-//        });
+        Schema::create('images', function (Blueprint $table) {
+            $table->id();
+            $table->string("path");
+            $table->integer("imageable_id");
+            $table->string("imageable_type");
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +29,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-       // Schema::dropIfExists('images');
+        Schema::dropIfExists('images');
     }
 }

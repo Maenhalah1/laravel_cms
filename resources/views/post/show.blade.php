@@ -1,7 +1,7 @@
 
 <x-main-master>
 
-    @section("css-header-resourses")
+    @section("header-css-links")
         <link href="{{asset("css/blog-post.css")}}" rel="stylesheet">
     @endsection
 

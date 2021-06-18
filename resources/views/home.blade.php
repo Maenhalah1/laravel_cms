@@ -14,7 +14,6 @@
                     <h1 class="my-4">Posts
                         <small>| home</small>
                     </h1>
-
                     <!-- Blog Post -->
                 @if(!$posts->isEmpty())
                     @foreach($posts as $post)
@@ -23,7 +22,7 @@
                         <div class="card-body">
                             <h2 class="card-title">{{$post->title}}</h2>
                             <p class="card-text">{{\Illuminate\Support\Str::limit($post->body,70,"....")}}</p>
-                            <a href="{{route("post.show", [$post->id])}}" class="btn btn-primary">Read More &rarr;</a>
+                            <a href="{{route("posts.show", [$post->id])}}" class="btn btn-primary">Read More &rarr;</a>
                         </div>
                         <div class="card-footer text-muted">
                             Posted on {{$post->created_at->diffForHumans()}} by

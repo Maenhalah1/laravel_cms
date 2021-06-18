@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    @hasSection("top-header-resourses")
-        @yield("top-header-resourses")
+    @hasSection("header-top")
+        @yield("header-top")
     @endif
 
 
@@ -17,12 +17,12 @@
 {{--    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">--}}
     <link rel="stylesheet" href="{{asset("css/app.css")}}">
     <link rel="stylesheet" href="{{asset("css/blog-home.css")}}">
-    @hasSection("css-header-resourses")
-        @yield("css-header-resourses")
+    @hasSection("header-css-links")
+        @yield("header-css-links")
     @endif
 
-    @hasSection("js-header-resourses")
-        @yield("css-header-resourses")
+    @hasSection("header-scripts")
+        @yield("header-scripts")
     @endif
     <!-- Custom styles for this template -->
 
@@ -63,8 +63,8 @@
 <script src="{{asset("vendor/jquery/jquery.min.js")}}"></script>
 <script src="{{asset("vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
 <script src="{{asset("css/app.js")}}"></script>
-@hasSection("js-footer-resourses")
-    @yield("js-footer-resourses")
+@hasSection("footer-scripts")
+    @yield("footer-scripts")
 @endif
 
 </body>
