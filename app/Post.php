@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Config;
 
 class Post extends Model
 {
+    use SoftDeletes;
 
     protected $imgsDirectory = "uploads" . DIRECTORY_SEPARATOR . "posts_images";
     protected $appends = ["imgsPath"];
 
-    protected $dates = ['created_at', 'updated_at'];
+    protected $dates = ['created_at', 'updated_at', 'delete_at'];
 
 
     protected $guarded = [];

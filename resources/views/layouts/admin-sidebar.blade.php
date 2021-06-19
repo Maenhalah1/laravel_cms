@@ -38,6 +38,7 @@
                 <h6 class="collapse-header">Posts</h6>
                 <a class="collapse-item" href="{{route("admin.posts.index")}}">All Posts</a>
                 <a class="collapse-item" href="{{route("admin.posts.create")}}">Create new Post</a>
+                <a class="collapse-item" href="{{route("admin.posts.trash")}}">Trash</a>
             </div>
         </div>
     </li>

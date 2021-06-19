@@ -40,4 +40,12 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany("App\Post");
     }
+
+    public function permissions(){
+        return $this->belongsToMany(Permission::class, "permission_user");
+    }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, "user_role");
+    }
 }

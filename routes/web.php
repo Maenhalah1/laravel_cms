@@ -32,6 +32,11 @@ Route::group(["prefix" => "admin", "namespace" => "Admin", "middleware" => "auth
                     "edit" => "admin.posts.edit",
                     "update" => "admin.posts.update",
                     "destroy" => "admin.posts.destroy"]]);
+    Route::post("/posts/{post}/image/{image_id}/delete", "PostController@deletePostImage")->name("admin.posts.image.delete");
+    Route::get("/posts/trash", "PostController@trash")->name("admin.posts.trash");
+    Route::delete("/posts/trash/{post}/delete", "PostController@trashDelete")->name("admin.posts.trash.delete");
+    Route::put("/posts/trash/{post}/restore", "PostController@trashRestore")->name("admin.posts.trash.restore");
+
 });
 
 Route::get("/post/{id}", "PostController@show")->name("posts.show");

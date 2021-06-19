@@ -12,9 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            "name" => Illuminate\Support\Str::random(8),
-            "email" => Illuminate\Support\Str::random(8) . "@code.com",
-            "password" => password_hash('secret', PASSWORD_DEFAULT),
+            "username" => "admin",
+            "name" => "admin",
+            "email" => "admin@code.com",
+            "password" => \Illuminate\Support\Facades\Hash::make("admin"),
             "role_id" => 1,
             "active"=>1
         ]);
