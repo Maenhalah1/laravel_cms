@@ -37,6 +37,17 @@ Route::group(["prefix" => "admin", "namespace" => "Admin", "middleware" => "auth
     Route::delete("/posts/trash/{post}/delete", "PostController@trashDelete")->name("admin.posts.trash.delete");
     Route::put("/posts/trash/{post}/restore", "PostController@trashRestore")->name("admin.posts.trash.restore");
 
-});
+    Route::get("/users", "UserController@index")->name("admin.users.index");
+    Route::delete("/users/{user}", "UserController@destroy")->name("admin.users.destroy");
+    Route::get("/users/{user}/edit", "UserController@edit")->name("admin.users.edit");
+    Route::put("/users/{user}", "UserController@update")->name("admin.users.update");
 
+    Route::put("/users/{user}/role/{role}", "UserController@roleAttach")->name("admin.users.role.attach");
+    Route::delete("/users/{user}/role/{role}", "UserController@roleDetach")->name("admin.users.role.detach");
+
+});
+Route::group(["middleware" => "auth"],function (){
+    Route::get("user/profile","UserController@profile")->name("user.profile");
+    Route::put("user/profile/update","UserController@updateProfile")->name("user.profile.update");
+});
 Route::get("/post/{id}", "PostController@show")->name("posts.show");

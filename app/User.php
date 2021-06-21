@@ -5,9 +5,14 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use League\Flysystem\Config;
 
 class User extends Authenticatable
 {
+    protected $imgDirectory = "uploads" . DIRECTORY_SEPARATOR . "profiles";
+    protected $appends = ["imgPath"];
+
     use Notifiable;
 
     /**
@@ -47,5 +52,12 @@ class User extends Authenticatable
 
     public function roles(){
         return $this->belongsToMany(Role::class, "user_role");
+    }
+
+    public function setPasswordAttribute($value){
+        $this->attributes["password"] = Hash::make($value);
+    }
+    public function getImgPathAttribute(){
+        return DIRECTORY_SEPARATOR . $this->imgDirectory . DIRECTORY_SEPARATOR . $this->id;
     }
 }
