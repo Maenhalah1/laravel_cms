@@ -53,24 +53,13 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Users</h6>
                 <a class="collapse-item" href="{{route("admin.users.index")}}">All Users</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRole" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Authorization</span>
-        </a>
-        <div id="collapseRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Roles</h6>
-                <a class="collapse-item" href="{{route("admin.roles")}}">Roles</a>
-                <a class="collapse-item" href="{{route("admin.roles")}}">Permissions</a>
+                <a class="collapse-item" href="{{route("admin.roles")}}">Roles & Permissions</a>
 
             </div>
         </div>
     </li>
+
+
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">

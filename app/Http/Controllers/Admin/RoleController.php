@@ -57,4 +57,18 @@ class RoleController extends Controller
         }
         return back();
     }
+
+    public function permissionAttach(Role $role, Permission $permission,Request $request){
+       if(!$role->permissions->contains($permission)){
+           $role->permissions()->attach($permission->id);
+       }
+       return back();
+    }
+    public function permissionDetach(Role $role, Permission $permission,Request $request){
+        if($role->permissions->contains($permission)){
+            $role->permissions()->detach($permission->id);
+        }
+        return back();
+    }
+
 }

@@ -20,6 +20,10 @@ class PostPolicy
     {
         return $user->is($user);
     }
+    public function check(){
+        var_dump("yes");
+        return true;
+    }
 
     /**
      * Determine whether the user can view the model.
@@ -29,7 +33,8 @@ class PostPolicy
      * @return mixed
      */
     public function view(User $user, Post $post){
-
+        var_dump("yes");
+        return true;
     }
 
     /**

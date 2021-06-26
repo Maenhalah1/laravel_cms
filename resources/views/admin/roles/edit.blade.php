@@ -45,11 +45,22 @@
                             <tbody>
                             @if($permissions->isNotEmpty())
                                 @foreach($permissions as $permission)
-                                    <tr @if(isset($rolePermissions[$permission->id])) style=" background-color: #ddd" @endif>
+                                    <tr @if(isset($rolePermissions[$permission->id])) style="background-color:#ddd" @endif>
                                         <td>{{$permission->id}}</td>
                                         <td>{{$permission->name}}</td>
                                         <td>{{$permission->slug}}</td>
                                         <td>
+                                            @if(isset($rolePermissions[$permission->id]))
+                                                <form action="{{route("admin.role.detach.permission", [$role->id,$permission->id])}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Detach</button>
+                                                </form>
+                                            @else
+                                                <form action="{{route("admin.role.attach.permission", [$role->id, $permission->id])}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary">Attach</button>
+                                                </form>
+                                            @endif
 
                                         </td>
                                     </tr>

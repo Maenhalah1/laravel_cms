@@ -32,6 +32,8 @@ Route::middleware("auth")->group(function(){
     Route::get("/roles/{role}","RoleController@edit")->name("admin.roles.edit");
     Route::put("/roles/{role}","RoleController@update")->name("admin.roles.update");
     Route::delete("/roles/{role}","RoleController@destroy")->name("admin.roles.destroy");
+    Route::post("/roles/{role}/attach/{permission}","RoleController@permissionAttach")->name("admin.role.attach.permission");
+    Route::post("/roles/{role}/detach/{permission}","RoleController@permissionDetach")->name("admin.role.detach.permission");
 
 });
 
